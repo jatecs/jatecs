@@ -1,0 +1,12 @@
+# Format: categoryID  parent_categoryID category_description
+# Each field must be separated by a TAB. 
+acq	_null_	acq
+corn	_null_	corn
+crude	_null_	crude
+earn	_null_	earn
+grain	_null_	grain
+interest	_null_	interest
+money-fx	_null_	money-fx
+ship	_null_	ship
+trade	_null_	trade
+wheat	_null_	wheat

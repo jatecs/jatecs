@@ -1,0 +1,12 @@
+# Format: categoryID  parent_categoryID category_description
+# Each field must be separated by a TAB. 
+acq	FINANCIAL	acq
+corn		COMMODITIES	corn
+crude	ENERGY	crude
+earn	FINANCIAL	earn
+grain	COMMODITIES	grain
+interest	FINANCIAL	interest
+money-fx	FINANCIAL	money-fx
+ship	COMMODITIES	ship
+trade	FINANCIAL	trade
+wheat	COMMODITIES	wheat

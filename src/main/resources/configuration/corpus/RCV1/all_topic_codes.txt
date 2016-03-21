@@ -1,0 +1,104 @@
+parent: None    child: Root    child-description: No Description
+parent: CCAT    child: C11     child-description: STRATEGY/PLANS
+parent: CCAT    child: C12     child-description: LEGAL/JUDICIAL
+parent: CCAT    child: C13     child-description: REGULATION/POLICY
+parent: CCAT    child: C14     child-description: SHARE LISTINGS
+parent: CCAT    child: C15     child-description: PERFORMANCE
+parent: C15     child: C151    child-description: ACCOUNTS/EARNINGS
+parent: C151    child: C1511   child-description: ANNUAL RESULTS
+parent: C15     child: C152    child-description: COMMENT/FORECASTS
+parent: CCAT    child: C16     child-description: INSOLVENCY/LIQUIDITY
+parent: CCAT    child: C17     child-description: FUNDING/CAPITAL
+parent: C17     child: C171    child-description: SHARE CAPITAL
+parent: C17     child: C172    child-description: BONDS/DEBT ISSUES
+parent: C17     child: C173    child-description: LOANS/CREDITS
+parent: C17     child: C174    child-description: CREDIT RATINGS
+parent: CCAT    child: C18     child-description: OWNERSHIP CHANGES
+parent: C18     child: C181    child-description: MERGERS/ACQUISITIONS
+parent: C18     child: C182    child-description: ASSET TRANSFERS
+parent: C18     child: C183    child-description: PRIVATISATIONS
+parent: CCAT    child: C21     child-description: PRODUCTION/SERVICES
+parent: CCAT    child: C22     child-description: NEW PRODUCTS/SERVICES
+parent: CCAT    child: C23     child-description: RESEARCH/DEVELOPMENT
+parent: CCAT    child: C24     child-description: CAPACITY/FACILITIES
+parent: CCAT    child: C31     child-description: MARKETS/MARKETING
+parent: C31     child: C311    child-description: DOMESTIC MARKETS
+parent: C31     child: C312    child-description: EXTERNAL MARKETS
+parent: C31     child: C313    child-description: MARKET SHARE
+parent: CCAT    child: C32     child-description: ADVERTISING/PROMOTION
+parent: CCAT    child: C33     child-description: CONTRACTS/ORDERS
+parent: C33     child: C331    child-description: DEFENCE CONTRACTS
+parent: CCAT    child: C34     child-description: MONOPOLIES/COMPETITION
+parent: CCAT    child: C41     child-description: MANAGEMENT
+parent: C41     child: C411    child-description: MANAGEMENT MOVES
+parent: CCAT    child: C42     child-description: LABOUR
+parent: Root    child: CCAT    child-description: CORPORATE/INDUSTRIAL
+parent: ECAT    child: E11     child-description: ECONOMIC PERFORMANCE
+parent: ECAT    child: E12     child-description: MONETARY/ECONOMIC
+parent: E12     child: E121    child-description: MONEY SUPPLY
+parent: ECAT    child: E13     child-description: INFLATION/PRICES
+parent: E13     child: E131    child-description: CONSUMER PRICES
+parent: E13     child: E132    child-description: WHOLESALE PRICES
+parent: ECAT    child: E14     child-description: CONSUMER FINANCE
+parent: E14     child: E141    child-description: PERSONAL INCOME
+parent: E14     child: E142    child-description: CONSUMER CREDIT
+parent: E14     child: E143    child-description: RETAIL SALES
+parent: ECAT    child: E21     child-description: GOVERNMENT FINANCE
+parent: E21     child: E211    child-description: EXPENDITURE/REVENUE
+parent: E21     child: E212    child-description: GOVERNMENT BORROWING
+parent: ECAT    child: E31     child-description: OUTPUT/CAPACITY
+parent: E31     child: E311    child-description: INDUSTRIAL PRODUCTION
+#parent: E31     child: E312    child-description: CAPACITY UTILIZATION
+parent: E31     child: E313    child-description: INVENTORIES
+parent: ECAT    child: E41     child-description: EMPLOYMENT/LABOUR
+parent: E41     child: E411    child-description: UNEMPLOYMENT
+parent: ECAT    child: E51     child-description: TRADE/RESERVES
+parent: E51     child: E511    child-description: BALANCE OF PAYMENTS
+parent: E51     child: E512    child-description: MERCHANDISE TRADE
+parent: E51     child: E513    child-description: RESERVES
+parent: ECAT    child: E61     child-description: HOUSING STARTS
+parent: ECAT    child: E71     child-description: LEADING INDICATORS
+parent: Root    child: ECAT    child-description: ECONOMICS
+parent: GCAT    child: G15     child-description: EUROPEAN COMMUNITY
+parent: G15     child: G151    child-description: EC INTERNAL MARKET
+parent: G15     child: G152    child-description: EC CORPORATE POLICY
+parent: G15     child: G153    child-description: EC AGRICULTURE POLICY
+parent: G15     child: G154    child-description: EC MONETARY/ECONOMIC
+parent: G15     child: G155    child-description: EC INSTITUTIONS
+parent: G15     child: G156    child-description: EC ENVIRONMENT ISSUES
+parent: G15     child: G157    child-description: EC COMPETITION/SUBSIDY
+parent: G15     child: G158    child-description: EC EXTERNAL RELATIONS
+parent: G15     child: G159    child-description: EC GENERAL
+parent: Root    child: GCAT    child-description: GOVERNMENT/SOCIAL
+parent: GCAT    child: GCRIM   child-description: CRIME, LAW ENFORCEMENT
+parent: GCAT    child: GDEF    child-description: DEFENCE
+parent: GCAT    child: GDIP    child-description: INTERNATIONAL RELATIONS
+parent: GCAT    child: GDIS    child-description: DISASTERS AND ACCIDENTS
+parent: GCAT    child: GENT    child-description: ARTS, CULTURE, ENTERTAINMENT
+parent: GCAT    child: GENV    child-description: ENVIRONMENT AND NATURAL WORLD
+parent: GCAT    child: GFAS    child-description: FASHION
+parent: GCAT    child: GHEA    child-description: HEALTH
+parent: GCAT    child: GJOB    child-description: LABOUR ISSUES
+#parent: GCAT    child: GMIL    child-description: MILLENNIUM ISSUES
+parent: GCAT    child: GOBIT   child-description: OBITUARIES
+parent: GCAT    child: GODD    child-description: HUMAN INTEREST
+parent: GCAT    child: GPOL    child-description: DOMESTIC POLITICS
+parent: GCAT    child: GPRO    child-description: BIOGRAPHIES, PERSONALITIES, PEOPLE
+parent: GCAT    child: GREL    child-description: RELIGION
+parent: GCAT    child: GSCI    child-description: SCIENCE AND TECHNOLOGY
+parent: GCAT    child: GSPO    child-description: SPORTS
+parent: GCAT    child: GTOUR   child-description: TRAVEL AND TOURISM
+parent: GCAT    child: GVIO    child-description: WAR, CIVIL WAR
+parent: GCAT    child: GVOTE   child-description: ELECTIONS
+parent: GCAT    child: GWEA    child-description: WEATHER
+parent: GCAT    child: GWELF   child-description: WELFARE, SOCIAL SERVICES
+parent: MCAT    child: M11     child-description: EQUITY MARKETS
+parent: MCAT    child: M12     child-description: BOND MARKETS
+parent: MCAT    child: M13     child-description: MONEY MARKETS
+parent: M13     child: M131    child-description: INTERBANK MARKETS
+parent: M13     child: M132    child-description: FOREX MARKETS
+parent: MCAT    child: M14     child-description: COMMODITY MARKETS
+parent: M14     child: M141    child-description: SOFT COMMODITIES
+parent: M14     child: M142    child-description: METALS TRADING
+parent: M14     child: M143    child-description: ENERGY MARKETS
+parent: Root    child: MCAT    child-description: MARKETS

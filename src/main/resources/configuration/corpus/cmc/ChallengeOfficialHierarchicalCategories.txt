@@ -1,0 +1,72 @@
+759.89	759	759.89
+V42.0	V42	V42.0
+079	Infectious	079
+511.9	511	511.9
+789.00	789	789.00
+279.12	279	279.12
+591	Diseases of genitourinary system	591
+780	Signs	780
+795	Signs	795
+592.0	592	592.0
+786.09	786	786.09
+785.6	785	785.6
+279	Endocrine	279
+V13.02	V13	V13.02
+593.1	593	593.1
+486	Diseases of respiratory system	486
+788.41	788	788.41
+786.07	786	786.07
+780.6	780	780.6
+593.70	593	593.70
+277	Endocrine	277
+789	Signs	789
+786.59	786	786.59
+786.2	786	786.2
+V42	Factors Influencing Health Status	V42
+789.09	789	789.09
+493.90	493	493.90
+277.00	277	277.00
+786.50	786	786.50
+518.0	518	518.0
+758	Congenital anomalies	758
+795.5	795	795.5
+596.54	596	596.54
+791.0	791	791.0
+753.21	753	753.21
+596.8	596	596.8
+V72	Factors Influencing Health Status	V72
+079.99	079	079.99
+V67	Factors Influencing Health Status	V67
+593.89	593	593.89
+741	Congenital anomalies	741
+753	Congenital anomalies	753
+759	Congenital anomalies	759
+785	Signs	785
+788	Signs	788
+511	Diseases of respiratory system	511
+V13.09	V13	V13.09
+758.6	758	758.6
+753.0	753	753.0
+599	Diseases of genitourinary system	599
+788.30	788	788.30
+783	Signs	783
+593	Diseases of genitourinary system	593
+786	Signs	786
+599.0	599	599.0
+518	Diseases of respiratory system	518
+462	Diseases of respiratory system	462
+493	Diseases of respiratory system	493
+783.0	783	783.0
+791	Signs	791
+596	Diseases of genitourinary system	596
+V67.09	V67	V67.09
+592	Diseases of genitourinary system	592
+593.5	593	593.5
+786.05	786	786.05
+787.03	787	787.03
+753.3	753	753.3
+V13	Factors Influencing Health Status	V13
+599.7	599	599.7
+741.90	741	741.90
+787	Signs	787
+V72.5	V72	V72.5

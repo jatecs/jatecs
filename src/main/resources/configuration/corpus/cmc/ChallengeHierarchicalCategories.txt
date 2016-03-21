@@ -1,0 +1,201 @@
+759.89	759	759.89
+741.9	741	741.9
+785.1	785	785.1
+795	Signs	795
+592.0	592	592.0
+569.8	569	569.8
+335.10	335	335.10
+785.6	785	785.6
+756.79	756	756.79
+486	Diseases of respiratory system	486
+519	Diseases of respiratory system	519
+598.9	598	598.9
+786.07	786	786.07
+789.0	789	789.0
+V15.1	V15	V15.1
+288	Diseases of blood	288
+789	Signs	789
+786.06	786	786.06
+282	Diseases of blood	282
+786.59	786	786.59
+756	Congenital anomalies	756
+786.2	786	786.2
+V42	Factors Influencing Health Status	V42
+788.5	788	788.5
+573.8	573	573.8
+737.9	737	737.9
+277.00	277	277.00
+753.4	753	753.4
+518.3	518	518.3
+V72	Factors Influencing Health Status	V72
+519.1	519	519.1
+514	Diseases of respiratory system	514
+741	Congenital anomalies	741
+753	Congenital anomalies	753
+785	Signs	785
+V10.60	V10	V10.60
+511	Diseases of respiratory system	511
+V45.73	V45	V45.73
+593	Diseases of genitourinary system	593
+724	Diseases musculoskeletal	724
+V18.7	V18	V18.7
+793.1	793	793.1
+786	Signs	786
+518	Diseases of respiratory system	518
+793	Signs	793
+V12.69	V12	V12.69
+517	Diseases of respiratory system	517
+478.29	478	478.29
+787.03	787	787.03
+753.3	753	753.3
+741.90	741	741.90
+787	Signs	787
+315.9	315	315.9
+793.5	793	793.5
+511.9	511	511.9
+793.0	793	793.0
+753.15	753	753.15
+780.39	780	780.39
+786.09	786	786.09
+593.90	593	593.90
+593.1	593	593.1
+788.69	788	788.69
+593.70	593	593.70
+724.5	724	724.5
+789.09	789	789.09
+V18	Factors Influencing Health Status	V18
+493.90	493	493.90
+786.50	786	786.50
+V44.6	V44	V44.6
+724.2	724	724.2
+494.0	494	494.0
+596.8	596	596.8
+793.2	793	793.2
+335	Diseases of nevous system	335
+596.9	596	596.9
+478	Diseases of respiratory system	478
+959.11	959	959.11
+282.60	282	282.60
+V01	Factors Influencing Health Status	V01
+737	Diseases musculoskeletal	737
+742.9	742	742.9
+466.19	466	466.19
+758.6	758	758.6
+V01.89	V01	V01.89
+033	Infectious	033
+V71.89	V71	V71.89
+959	Injury	959
+788.30	788	788.30
+783	Signs	783
+783.40	783	783.40
+V44	Factors Influencing Health Status	V44
+204.0	204	204.0
+752.9	752	752.9
+742.8	742	742.8
+783.0	783	783.0
+315	Mental disorders	315
+793.4	793	793.4
+786.0	786	786.0
+786.52	786	786.52
+282.62	282	282.62
+593.5	593	593.5
+742	Congenital anomalies	742
+V45.89	V45	V45.89
+786.51	786	786.51
+592.1	592	592.1
+753.9	753	753.9
+V72.5	V72	V72.5
+079	Infectious	079
+789.00	789	789.00
+596.3	596	596.3
+279	Endocrine	279
+033.0	033	033.0
+788.41	788	788.41
+780.79	780	780.79
+277	Endocrine	277
+V67.59	V67	V67.59
+519.11	519	519.11
+518.0	518	518.0
+V44.1	V44	V44.1
+598	Diseases of genitourinary system	598
+795.5	795	795.5
+758	Congenital anomalies	758
+791.0	791	791.0
+V45	Factors Influencing Health Status	V45
+478.74	478	478.74
+536.8	536	536.8
+593.89	593	593.89
+58	Infectious	58
+536	Diseases of digestive system	536
+201.90	201	201.90
+759	Congenital anomalies	759
+737.30	737	737.30
+V13.09	V13	V13.09
+59	Infectious	59
+599	Diseases of genitourinary system	599
+288.60	288	288.60
+790.6	790	790.6
+599.0	599	599.0
+593.3	593	593.3
+493	Diseases of respiratory system	493
+791	Signs	791
+494	Diseases of respiratory system	494
+V18.69	V18	V18.69
+596	Diseases of genitourinary system	596
+V13.69	V13	V13.69
+592	Diseases of genitourinary system	592
+753.10	753	753.10
+599.7	599	599.7
+201	Neoplasms	201
+593.2	593	593.2
+V67.6	V67	V67.6
+788.36	788	788.36
+752	Congenital anomalies	752
+58.0	58	58.0
+V42.0	V42	V42.0
+569	Diseases of digestive system	569
+573	Diseases of digestive system	573
+279.12	279	279.12
+591	Diseases of genitourinary system	591
+780	Signs	780
+758.9	758	758.9
+V71	Factors Influencing Health Status	V71
+786.7	786	786.7
+518.89	518	518.89
+V13.02	V13	V13.02
+466	Diseases of respiratory system	466
+751	Congenital anomalies	751
+478.19	478	478.19
+V10.69	V10	V10.69
+V13.01	V13	V13.01
+596.59	596	596.59
+780.6	780	780.6
+V13.00	V13	V13.00
+587	Diseases of genitourinary system	587
+V12.61	V12	V12.61
+751.5	751	751.5
+517.3	517	517.3
+793.99	793	793.99
+596.54	596	596.54
+753.21	753	753.21
+204.00	204	204.00
+079.99	079	079.99
+V67	Factors Influencing Health Status	V67
+27	Infectious	27
+V42.81	V42	V42.81
+788	Signs	788
+753.0	753	753.0
+788.1	788	788.1
+V15	Factors Influencing Health Status	V15
+204	Neoplasms	204
+27.00	27	27.00
+462	Diseases of respiratory system	462
+790	Signs	790
+V12	Factors Influencing Health Status	V12
+V67.09	V67	V67.09
+V10	Factors Influencing Health Status	V10
+786.05	786	786.05
+V13	Factors Influencing Health Status	V13
+780.31	780	780.31
+59.70	59	59.70
+599.84	599	599.84
