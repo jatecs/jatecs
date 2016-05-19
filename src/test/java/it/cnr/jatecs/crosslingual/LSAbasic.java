@@ -50,7 +50,7 @@ public class LSAbasic {
 	int t = 8;
 	int d = 5;
 
-	@Before
+	/*@Before
 	public void init() {
 
 		double[][] m = new double[t][d];
@@ -248,5 +248,5 @@ public class LSAbasic {
 		}
 
 		return new Matrix(matrix);
-	}
+	}*/
 }

@@ -26,7 +26,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>tag.nmis.isti.cnr.it</groupId>
+	<groupId>hlt.isti.cnr.it</groupId>
 	<artifactId>jatecs-gpl</artifactId>
 
 	<!-- ********** CHANGE THESE PROPERTIES WHEN UPDATE TO A NEW SOFTWARE VERSION. 
@@ -34,26 +34,29 @@
 		IT DIFFERENTLY! The version syntax should be the following: (M).(m).(sm)[.(rev)][-SNAPSHOT] 
 		where (M) is the major version (int), (m) is the minor version (int), (sm) 
 		is the subminor (int) and (rev) is the optional revision (string) ******* -->
-	<version>0.5.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 
 	<packaging>jar</packaging>
 
-	<name>jatecs</name>
-	<url>http://maven.apache.org</url>
+	<name>jatecs-gpl</name>
+	<description>JaTeCS is an open source Java library focused on Automatic Text Categorization (ATC)</description>
+	<url>https://github.com/jatecs/jatecs</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- github server corresponds to entry in ~/.m2/settings.xml -->
+		<github.global.server>github</github.global.server>
 	</properties>
 
-	<repositories>
-		<repository>
-			<id>repo.tag</id>
-			<name>Default proxy repository for TAG group at NeMis lab, ISTI-CNR</name>
-			<url>http://repo.hlt.isti.cnr.it:8081/nexus/content/groups/public</url>
-		</repository>
-	</repositories>
 
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Temporary Staging Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
 
 
 	<!-- Profiles configuration -->
@@ -76,13 +79,6 @@
 				<jatecs.build.time>${maven.build.timestamp}</jatecs.build.time>
 				<jatecs.build.finalname>${project.name}-${jatecs.build.generateversion}.${jatecs.build.time}</jatecs.build.finalname>
 			</properties>
-
-			<distributionManagement>
-				<repository>
-					<id>repo.tag.snapshot</id>
-					<url>http://repo.hlt.isti.cnr.it:8081/nexus/content/repositories/snapshots</url>
-				</repository>
-			</distributionManagement>
 		</profile>
 		<profile>
 			<id>release</id>
@@ -94,12 +90,6 @@
 				<jatecs.build.generateversion>${project.version}</jatecs.build.generateversion>
 				<jatecs.build.finalname>${project.name}-${jatecs.build.generateversion}</jatecs.build.finalname>
 			</properties>
-			<distributionManagement>
-				<repository>
-					<id>repo.tag.release</id>
-					<url>http://repo.hlt.isti.cnr.it:8081/nexus/content/repositories/releases</url>
-				</repository>
-			</distributionManagement>
 		</profile>
 	</profiles>
 
@@ -113,6 +103,15 @@
 			</resource>
 		</resources>
 		<plugins>
+
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.1</version>
+				<configuration>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -202,11 +201,37 @@
 				</executions>
 			</plugin>
 
+			<!-- Used to upload artifacts to github. -->
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.9</version>
+				<configuration>
+					<message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
+					<noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
+					<branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
+					<includes><include>**/*</include></includes>
+					<repositoryName>https://github.com/jatecs/jatecs</repositoryName>      <!-- github repo name -->
+					<repositoryOwner>tizfa</repositoryOwner>    <!-- github username  -->
+				</configuration>
+				<executions>
+					<!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 
 
 		<pluginManagement>
 			<plugins>
+
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
