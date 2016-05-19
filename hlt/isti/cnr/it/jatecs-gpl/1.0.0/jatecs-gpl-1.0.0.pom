@@ -1,0 +1,330 @@
+<!--
+  ~ This file is part of JaTeCS.
+  ~
+  ~ JaTeCS is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ JaTeCS is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with JaTeCS.  If not, see <http://www.gnu.org/licenses/>.
+  ~
+  ~ The software has been mainly developed by (in alphabetical order):
+  ~ - Andrea Esuli (andrea.esuli@isti.cnr.it)
+  ~ - Tiziano Fagni (tiziano.fagni@isti.cnr.it)
+  ~ - Alejandro Moreo Fernández (alejandro.moreo@isti.cnr.it)
+  ~ Other past contributors were:
+  ~ - Giacomo Berardi (giacomo.berardi@isti.cnr.it)
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>hlt.isti.cnr.it</groupId>
+	<artifactId>jatecs-gpl</artifactId>
+
+	<!-- ********** CHANGE THESE PROPERTIES WHEN UPDATE TO A NEW SOFTWARE VERSION. 
+		IMPORTANT: IN DEVEL LEAVE "-SNAPSHOT" AT THE END OF VERSION. MAVEN WILL THREAT 
+		IT DIFFERENTLY! The version syntax should be the following: (M).(m).(sm)[.(rev)][-SNAPSHOT] 
+		where (M) is the major version (int), (m) is the minor version (int), (sm) 
+		is the subminor (int) and (rev) is the optional revision (string) ******* -->
+	<version>1.0.0</version>
+
+
+	<packaging>jar</packaging>
+
+	<name>jatecs-gpl</name>
+	<description>JaTeCS is an open source Java library focused on Automatic Text Categorization (ATC)</description>
+	<url>https://github.com/jatecs/jatecs</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- github server corresponds to entry in ~/.m2/settings.xml -->
+		<github.global.server>github</github.global.server>
+	</properties>
+
+
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Temporary Staging Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
+
+
+	<!-- Profiles configuration -->
+	<!-- Specify to Maven the profile to use when building the library. If you 
+		want to build a devel snapshot specify 'mvn package -P devel', if you want 
+		to build a release specify 'mvn package -P release'. If you not specify the 
+		-P parameter, the profile devel will be used. -->
+	<profiles>
+		<profile>
+			<id>devel</id>
+			<!-- Devel profile is active by default -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- Specifies the build profile id, which is used to find out the correct 
+					properties file. -->
+				<build.profile.id>devel</build.profile.id>
+				<jatecs.build.generateversion>${project.version}</jatecs.build.generateversion>
+				<jatecs.build.time>${maven.build.timestamp}</jatecs.build.time>
+				<jatecs.build.finalname>${project.name}-${jatecs.build.generateversion}.${jatecs.build.time}</jatecs.build.finalname>
+			</properties>
+		</profile>
+		<profile>
+			<id>release</id>
+			<properties>
+				<!-- Specifies the build profile id, which is used to find out the correct 
+					properties file. This is not actually necessary for this example, but it 
+					can be used for other purposes. -->
+				<build.profile.id>release</build.profile.id>
+				<jatecs.build.generateversion>${project.version}</jatecs.build.generateversion>
+				<jatecs.build.finalname>${project.name}-${jatecs.build.generateversion}</jatecs.build.finalname>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<finalName>${jatecs.build.finalname}</finalName>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.1</version>
+				<configuration>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>2.1.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<configuration>
+					<!-- that's the default value, you don't have to set it -->
+					<prefix>jatecs</prefix>
+
+					<!-- that's the default value -->
+					<dateFormat>ddMMyyyy'.'HHmmss</dateFormat>
+
+					<generateGitPropertiesFile>false</generateGitPropertiesFile>
+
+					<!-- true is default here, it prints some more information during the 
+						build -->
+					<verbose>true</verbose>
+
+					<!-- If you'd like to tell the plugin where your .git directory is, 
+						use this setting, otherwise we'll perform a search trying to figure out the 
+						right directory. It's better to add it explicite IMHO. -->
+					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+
+
+				</configuration>
+
+			</plugin>
+			<!-- END OF GIT COMMIT ID PLUGIN CONFIGURATION -->
+
+			<!-- Used to build a bundle containing the code of Jatecs and all its 
+				library dependencies -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<shadedArtifactAttached>true</shadedArtifactAttached>
+					<finalName>${jatecs.build.finalname}-bundle</finalName>
+					<createDependencyReducedPom>false</createDependencyReducedPom>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<artifactSet>
+								<excludes>
+									<exclude>edu.stanford.nlp:stanford-corenlp:models</exclude>
+								</excludes>
+							</artifactSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Used to pack the source code -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Used to upload artifacts to github. -->
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.11</version>
+				<configuration>
+					<message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
+					<noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
+					<branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
+					<includes><include>**/*</include></includes>
+					<!--<repositoryName>jatecs</repositoryName>-->      <!-- github repo name -->
+					<!--<repositoryOwner>tizfa</repositoryOwner>-->    <!-- github username  -->
+				</configuration>
+				<executions>
+					<!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+
+		<pluginManagement>
+			<plugins>
+
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>pl.project13.maven</groupId>
+										<artifactId>git-commit-id-plugin</artifactId>
+										<versionRange>2.1.0</versionRange>
+										<goals>
+											<goal>revision</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.trove4j</groupId>
+			<artifactId>trove4j</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-cli</groupId>
+			<artifactId>commons-cli</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<version>3.2.0</version>
+			<classifier>models</classifier>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>tw.edu.ntu.csie</groupId>
+			<artifactId>libsvm</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.martiansoftware</groupId>
+			<artifactId>jsap</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jazzy</groupId>
+			<artifactId>jazzy-core</artifactId>
+			<version>0.5.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>gov.nist.math</groupId>
+			<artifactId>jama</artifactId>
+			<version>1.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.4.5</version>
+		</dependency>
+	</dependencies>
+</project>
