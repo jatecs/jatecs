@@ -6,7 +6,33 @@ JaTeCS also provides the implementation of methods related to ATC that are rarel
 
 The software is released under the terms of [GPL license](http://www.gnu.org/licenses/gpl-3.0.en.html).
 
-## Data representation through IIndex data structure
+## Software installation
+To use the latest release of JaTeCS in your Maven projects, add the following on your project POM:
+```
+<repositories>
+
+    <repository>
+        <id>sparkboost-mvn-repo</id>
+        <url>https://raw.github.com/jatecs/jatecs/mvn-repo/</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+    </repository>
+
+</repositories>
+```
+then in the dependencies list add
+```
+<dependency>
+    <groupId>hlt.isti.cnr.it</groupId>
+    <artifactId>jatecs-gpl</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+## How to develop your apps with the software
+### Data representation through IIndex data structure
 In JaTeCS, the raw textual data is manipulated through the use of an indexed structure named *IIndex*.
 This data structure handles all relations among documents, features, and categories (which could be defined in a taxonomy).
 The IIndex can be used to manipulate or query data.
@@ -32,7 +58,7 @@ JaTeCS provides common feature extractors to represent features from raw textual
 The [dataset](src/example/java/apps/dataset) directory contains many examples of corpus indexing.
 Both extractors are subclasses of the generic class [FeatureExtractor.java](src/main/java/it/cnr/jatecs/indexing/corpus/FeatureExtractor.java) which provides additional capabilities like stemming, stopword removal, etc.
 
-## Preparing data for experiments: feature selection and feature weighting
+### Preparing data for experiments: feature selection and feature weighting
 Once the index has been created and instantiated, a common practice often followed in the experimentation pipeline consists of selecting most informative features (and discarding the rest). JaTeCS provides several implementations of global (see [GlobalTSR.java](src/main/java/it/cnr/jatecs/indexing/tsr/GlobalTSR.java)) or local (see [LocalTSR.java](src/main/java/it/cnr/jatecs/indexing/tsr/LocalTSR.java)) Term Selection Reduction (TSR) [methods](http://nmis.isti.cnr.it/sebastiani/Publications/ACMCS02.pdf). JaTeCS also provides many implementations of popular TSR functions, including [InformationGain](src/main/java/it/cnr/jatecs/indexing/tsr/InformationGain.java), [ChiSquare](src/main/java/it/cnr/jatecs/indexing/tsr/ChiSquare.java), [GainRatio](src/main/java/it/cnr/jatecs/indexing/tsr/GainRatio.java), among many others. Additionally, the GlobalTSR can be set with different policies, such as *sum*, *average*, or *max* (subclasses of [IGlobalTSRPolicy.java](src/main/java/it/cnr/jatecs/indexing/tsr/IGlobalTSRPolicy.java)). JaTeCS also implements the [RoundRobinTSR](src/main/java/it/cnr/jatecs/indexing/tsr/RoundRobinTSR.java) method, which selects the most important features to each category in a round robin manner. The following snippet illustrates how round robin feature selection with information gain is carried out in JaTeCS (see the full example [here](src/example/java/apps/index/GlobalRoundRobinTSR.java)):
 
 <pre><code>
@@ -49,7 +75,7 @@ The last step in data preparation consists of weighting the features so as to br
 	IIndex weightedTestIndex = weighting.computeWeights(testIndex);	
 </code></pre>
 
-## Building the classifier
+### Building the classifier
 Building a classifier typically involves a two-step process, including (i) model learning ([ILearner](src/main/java/it/cnr/jatecs/classification/interfaces/ILearner.java)), and (ii) document classification [IClassifier](src/main/java/it/cnr/jatecs/classification/interfaces/IClassifier.java).
 JaTeCS implements several machine learning algorithms, including: [AdaBoost-MH](src/main/java/it/cnr/jatecs/classification/adaboost), [MP-Boost](src/main/java/it/cnr/jatecs/classification/mpboost), [KNN](src/main/java/it/cnr/jatecs/classification/knn), [logistic_regression](src/main/java/it/cnr/jatecs/classification/logistic_regression), [naive bayes](src/main/java/it/cnr/jatecs/classification/naivebayes), [SVM](src/main/java/it/cnr/jatecs/classification/svm), among many others (placed in the source directory [classification](src/main/java/it/cnr/jatecs/classification)).
 
@@ -75,10 +101,10 @@ JaTeCS also brings support to evaluation of results by means of the following cl
 </code></pre>
 
 
-## Applications of Text Classification
+### Applications of Text Classification
 JaTeCS includes many ready-to-use applications that could be useful for users which are mainly interested in running experiments on their own data quickly, but also for the practitioners, that might rather be interested in developing their own algorithms and applications; those might found on the JaTeCS apps implementations a perfect starting point where to start familiarizing with the framework through examples. In what follows, we show some selected examples, while many others could be found [here](src/example/java).
 
-### Text Quantification
+#### Text Quantification
 Text Quantification is the problem of estimating the distribution of labels in a collection of unlabeled documents, when the distribution in the training set may substantially differ.
 Though quantification processes a dataset as a single entity, the classification of single documents is the building block on which many quantification methods are built.
 JaTeCS implements a number of [classification-based quantification methods](src/main/java/it/cnr/jatecs/quantification):
@@ -106,11 +132,11 @@ JaTeCS implements a number of [classification-based quantification methods](src/
 	QuantificationEvaluation.Report(quantifications,test);
 </code></pre>
 
-### Transfer Learning
+#### Transfer Learning
 Transfer Learning concerns with leveraging the supervised information available for a *source domain* of knowledge in order to deploy a model that behaves well on a *target domain* (to which few, or none, labelled information exists), thus reducing, or completely avoiding, the need for human labelling effort in the target domain. In the context of ATC two scenarios are possible (i) *cross-domain TC*, where the source and target documents deal with different topics (e.g., book reviews vs music reviews), and (ii) *cross-lingual TC*, in which the source and target documents are written in different languages (e.g., English vs German book reviews). JaTeCS includes an implementation of the [Distributional Correspondence Indexing (DCI)](src/main/java/it/cnr/jatecs/representation/transfer/dci/DistributionalCorrespondeceIndexing.java), a feature-representation-transfer method for cross-domain and cross-lingual classification, described [here](http://dx.doi.org/10.1613/jair.4762). The class [DCImain.java](src/example/java/apps/transferLearning/DCImain.java) offers a complete implementation of the method, from the reading of source and target collections to the evaluation of results.
 
-### Active Learning, Training Data Cleaning, and Semi Automated Text Classification
+#### Active Learning, Training Data Cleaning, and Semi Automated Text Classification
 JaTeCS provides implementations of a rich number of methods proposed for three classes problems that are interrelated: [Active Learning (AL)](src/example/java/apps/satc), where the learning algorithm is prompted to select which documents to add to the training set at each step, with the aim of minimizing the amount of human labeling needed to obtain high accuracy; [Training Data Cleaning (TDC)](src/example/java/apps/trainingDataCleaning), that consists of using learning algorithms to discover labeling errors in an already existing training set; and [Semi-Automated Text Classification (SATC)](src/example/java/apps/satc), which aims at reducing the amount of effort a human should invest while inspecting, and eventually repairing, the outcomes produced by a classifier in order to guarantee a required accuracy level.
 
-### Distributional Semantic Models
+#### Distributional Semantic Models
 ATC often relies on a BoW model to represent a document collection, according to which each document could be though as a row in a matrix where each column informs about the frequency (see [IContentDB](src/main/java/it/cnr/jatecs/indexes/DB/interfaces/IContentDB.java)), or the relative importance (see [IWeightingDB](src/main/java/it/cnr/jatecs/indexes/DB/interfaces/IWeightingDB.java)) of each distinct feature (usually terms or n-grams) to that document, disregarding word order. Other representation mechanisms have been proposed as alternatives, including the *distributional semantic models* (DSM), which typically project the original BoW model into a reduced space, where semantics between terms is somehow modelled. JaTeCS implements a number of DSM, covering some [Random Projections](src/main/java/it/cnr/jatecs/representation/randomprojections) methods (such as [Random Indexing](src/main/java/it/cnr/jatecs/representation/randomprojections/RandomIndexing.java), or the [Achlioptas](src/main/java/it/cnr/jatecs/representation/randomprojections/AchlioptasIndexing.java) mapping), and [Latent Semantic Analysis](/src/main/java/it/cnr/jatecs/representation/lsa/LSA.java) (by wrapping the popular [SVDLIBC](https://tedlab.mit.edu/~dr/SVDLIBC/) implementation). Those methods are available as part of [full applications](src/example/java/apps/distributionalsemanticmodels), from reading the indexes to the evaluation of results. 
