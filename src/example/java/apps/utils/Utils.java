@@ -118,6 +118,10 @@ public class Utils {
 		}
 		return testClassification;
 	}
+	
+	public static IClassificationDB testClassifier(IIndex indexTesting, IClassifier classifier, ClassificationMode mode) throws IOException {
+		return testClassifier(indexTesting, classifier, null, null, mode);
+	}
 
 	public static IClassifier trainSVMlight(IIndex indexTraining, String svmlightConfigPath)
 			throws FileNotFoundException, IOException {

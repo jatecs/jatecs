@@ -35,6 +35,11 @@ public class SimilarDocument implements Comparable<SimilarDocument> {
      * The score assigned to the similar object.
      */
     public double score;
+    
+    public SimilarDocument(int docID, double score){
+    	this.docID=docID;
+    	this.score=score;
+    }
 
 
     public int compareTo(SimilarDocument o) {

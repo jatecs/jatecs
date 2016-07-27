@@ -54,15 +54,14 @@ public class TextualKnnSearcher implements IKnnSearcher {
         IIntIterator it = trainingIndex.getDocumentDB().getDocuments();
         while (it.hasNext()) {
             int d = it.next();
-            SimilarDocument sd = new SimilarDocument();
-            sd.docID = d;
+            double score = 0;
 
             if (_matrixSimilarity != null)
-                sd.score = _matrixSimilarity[d][docID];
+                score = _matrixSimilarity[d][docID];
             else
-                sd.score = _similarity.compute(docID, testIndex, d, trainingIndex);
+                score = _similarity.compute(docID, testIndex, d, trainingIndex);
 
-            sorted.add(sd);
+            sorted.add(new SimilarDocument(d, score));
             if (sorted.size() > numSimilar)
                 sorted.remove(sorted.first());
         }
