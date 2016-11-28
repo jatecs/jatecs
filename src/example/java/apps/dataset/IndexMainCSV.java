@@ -34,6 +34,7 @@ import it.cnr.jatecs.indexing.corpus.CSV.CSVCorpusReader;
 import it.cnr.jatecs.indexing.corpus.FileCategoryReader;
 import it.cnr.jatecs.indexing.corpus.SetType;
 import it.cnr.jatecs.indexing.module.FullIndexConstructor;
+import it.cnr.jatecs.indexing.preprocessing.*;
 import it.cnr.jatecs.indexing.tsr.GlobalThresholdTSR;
 import it.cnr.jatecs.indexing.tsr.MinimumDF;
 import it.cnr.jatecs.indexing.weighting.IWeighting;
