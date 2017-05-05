@@ -24,11 +24,15 @@ To use the latest release of JaTeCS in your Maven projects, add the following on
 ```
 then in the dependencies list add
 ```
-<dependency>
-    <groupId>hlt.isti.cnr.it</groupId>
-    <artifactId>jatecs-gpl</artifactId>
-    <version>1.0.0</version>
-</dependency>
+<dependencies>
+
+    <dependency>
+        <groupId>hlt.isti.cnr.it</groupId>
+        <artifactId>jatecs-gpl</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+    
+</dependencies>
 ```
 
 ## How to develop your apps with the software
