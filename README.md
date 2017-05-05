@@ -12,7 +12,7 @@ To use the latest release of JaTeCS in your Maven projects, add the following on
 <repositories>
 
     <repository>
-        <id>sparkboost-mvn-repo</id>
+        <id>jatecs-mvn-repo</id>
         <url>https://raw.github.com/jatecs/jatecs/mvn-repo/</url>
         <snapshots>
             <enabled>true</enabled>
