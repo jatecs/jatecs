@@ -13,7 +13,7 @@ To use the latest release of JaTeCS in your Maven projects, add the following on
 
     <repository>
         <id>jatecs-mvn-repo</id>
-        <url>https://raw.github.com/jatecs/jatecs/mvn-repo/</url>
+        <url>https://github.com/jatecs/jatecs/raw/mvn-repo/</url>
         <snapshots>
             <enabled>true</enabled>
             <updatePolicy>always</updatePolicy>
